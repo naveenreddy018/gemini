@@ -1,0 +1,223 @@
+/* Base styles */
+.response-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.main {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main .greet {
+    margin: 10px 0px;
+    color: #c4c7c5;
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
+}
+
+.main .greet h1{
+    font-size: 1550px;
+}
+.main .greet span {
+    background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    gap: 15px;
+    padding: 20px;
+}
+
+.main .cards .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    padding: 15px;
+    background-color: #f0f4f9;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card_image {
+    width: 35px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 15px;
+    align-self: flex-end;
+}
+
+.main .card p {
+    font-size: 17px;
+    color: #585858;
+    margin-bottom: 10px;
+}
+
+.main .card:hover {
+    background-color: #dfe4ea;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 40px;
+    margin: 0 180px;
+    margin-bottom: 80px;
+    border: 2px solid gray;
+}
+
+.input-bar {
+    flex-grow: 0 0 70%;
+    margin-right: 10px;
+}
+
+.input-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+}
+
+.additonal-icons {
+    display: flex;
+    gap: 15px;
+    padding: 5px;
+}
+
+.additonal-icons div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For mobile (468px and below) */
+@media (max-width: 468px) {
+    .header {
+        margin: 10px;
+    }
+    .nav .nav-name{
+        display: none;
+    }
+
+    .main .greet {
+        font-size: 50px; /* Increased font size for small screens */
+        padding: 15px;
+    }
+
+    .main .cards {
+        /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Stack cards to fit smaller screens */
+        /* padding: 10px; */ 
+        display: none;
+    }
+
+    .main .card {
+        height: 180px; /* Adjust card height for mobile */
+    }
+
+    .main .card p {
+        font-size: 18px; /* Increased font size in cards for mobile */
+    }
+
+    .footer {
+        margin: 0 20px;
+        margin-bottom: 40px;
+        padding: 10px;
+    }
+
+    .footer .input-bar input {
+        padding: 8px;
+        font-size: 13px;
+        width: 70%; /* Reduce input field width for mobile */
+    }
+
+    .additonal-icons {
+        gap: 10px; /* Reduce space between icons on mobile */
+    }
+    .additonal-icons  div  .gallery-icon{
+        display: none;
+    }
+
+    .card_image {
+        width: 30px; /* Reduce image size for mobile */
+    }
+}
+
+/* For tablet (768px and below) */
+@media (max-width: 768px) {
+    .main .cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust cards layout for tablets */
+        padding: 15px;
+    }
+
+    .main .greet {
+        font-size: 60px; /* Increased font size for tablets */
+        padding: 15px;
+    }
+
+    .main .card {
+        height: 220px; /* Increase card height slightly for tablets */
+    }
+
+    .main .card p {
+        font-size: 20px; /* Increased font size in cards for tablets */
+    }
+
+    .footer {
+        margin: 0 50px;
+        margin-bottom: 60px;
+        padding: 10px;
+    }
+
+    .footer .input-bar input {
+        padding: 10px;
+        width: 80%; /* Adjust input field width for tablets */
+    }
+
+    .additonal-icons {
+        gap: 12px; /* Reduce space between icons on tablets */
+    }
+
+    .card_image {
+        width: 32px; /* Slightly reduce image size for tablets */
+    }
+}
