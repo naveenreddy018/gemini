@@ -17,7 +17,7 @@ function SlideBar() {
   // Calculate the minWidth based on the window size
   const getMinWidth = () => {
     if (windowWidth <= 468) {
-      return menu ? '5vw' : '0vw'; // For mobile (468px and below)
+      return menu ? '55vw' : '0vw'; // For mobile (468px and below)
     } else if (windowWidth <= 768) {
       return menu ? '15vw' : '0vw'; // For tablet (768px and below)
     } else {

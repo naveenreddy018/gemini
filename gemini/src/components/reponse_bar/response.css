@@ -132,6 +132,7 @@
 
 /* For mobile (468px and below) */
 @media (max-width: 468px) {
+    
     .header {
         margin: 10px;
     }
