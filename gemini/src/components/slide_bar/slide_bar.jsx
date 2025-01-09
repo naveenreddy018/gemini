@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ImageComponent from '../ImageComponent/image';
+import ImageComponent from '../ImageComponent/image.jsx';
 import { assets } from '../../assets/assets';
 import './slide.css';
 
@@ -32,7 +32,7 @@ function SlideBar() {
           src={assets.menu_icon}
           style={{
             width: 30,
-            margin:10
+            margin:10,
           }}
           onClick={() => setMenu((prev) => !prev)}
         />

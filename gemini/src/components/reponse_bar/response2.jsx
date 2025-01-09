@@ -1,38 +1,15 @@
-import React, { useEffect, useState } from 'react'
+
+import React,{ useContext } from 'react'
 import { assets } from '../../assets/assets';
 import ImageComponent from '../ImageComponent/image';
+import { Context } from '../context/contetx';
 import "./response.css"
-function Response_Bar() {
-    const [Display,setdisplay] = useState(false)
-    const [prompt,setprompt] = useState("");
-    const [sendrequest,setsendrequest] = useState("")
-    const [response,setresponse] = useState("")
+function Response_Bar2() {
+  
+    const {response,onsent,input,setinput,loading} = useContext(Context)
+    console.log(response)
 
 
-    useEffect(()=>{
-        const fetch_data = async()=>{
-                    
-         try{
-            const res = await fetch("http://localhost:3004/prompt",{
-                method : "POST",
-                headers : {
-                    "Content-Type" :  "application/json",
-                },
-                body : JSON.stringify({prompt : sendrequest})
-            })
-
-            const response_data = await res.json()
-            setresponse(response_data)
-             console.log( " response " ,response_data)
-         }catch(error){
-            console.log(error.message)
-            console.log({error : "An error occured "})
-         }
-
-        }
-
-        fetch_data()
-    },[sendrequest])
     return (
         <div className='response-container'>
             <div className='header'>
@@ -71,10 +48,17 @@ function Response_Bar() {
                 </div>
             </div>
             {
-                Display ? (
+               response? (
                  <>
                      <div className='dialog-box'>
-                        <div>{response}</div>
+                        <div>{
+                            
+                            loading ?  <div className='loader'>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                           </div> :<p>{response}</p>
+                            }</div>
                      </div>
                  </>
                 ) :  <div className='main'>
@@ -105,7 +89,7 @@ function Response_Bar() {
             }
             <div className='footer'>
                 <div className='input-bar'>
-                    <input type='text'  onChange={(e) => setprompt(e.target.value)}     value={prompt} placeholder='Enter ur prompt' />
+                    <input type='text'  onChange={(e)=>setinput(e.target.value)} value={input} placeholder='Enter ur prompt'   />
                 </div>
                 <div className='additonal-icons'>
                     <div className='mic-icon'>
@@ -131,10 +115,9 @@ function Response_Bar() {
                             style={{
                                 width: 30
                             }}
+                         onClick={()=>onsent(input)}
 
-                            onClick={
-                                ()=>setsendrequest(prompt)
-                            }
+                            
                         />
                     </div>
                 </div>
@@ -145,4 +128,4 @@ function Response_Bar() {
     )
 }
 
-export default Response_Bar;
+export default Response_Bar2;
