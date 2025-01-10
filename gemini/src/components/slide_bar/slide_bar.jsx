@@ -21,7 +21,7 @@ function SlideBar() {
     } else if (windowWidth <= 768) {
       return menu ? '15vw' : '0vw'; // For tablet (768px and below)
     } else {
-      return menu ? '20vw' : '0vw'; // For larger screens
+      return menu ? '15vw' : '0vw'; // For larger screens
     }
   };
 

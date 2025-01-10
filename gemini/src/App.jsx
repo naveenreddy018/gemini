@@ -18,7 +18,7 @@ function App() {
   return (
     <div className='app-container'>
       <Slider_Bar />
-      <Response_Bar2 />
+      <Response_Bar />
       {/* <Interface /> */}
       {/* <Sign /> */}
      
