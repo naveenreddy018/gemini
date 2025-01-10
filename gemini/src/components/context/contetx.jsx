@@ -20,12 +20,11 @@ const ContextProvider = (props)=>{
       setprevinput(prompt)
       setloading(true)
        const resdata = await run(prompt)
-        // setresponse(resdata)
+
         const splitData = resdata.split(/\*+/)
 
         const wordsPerLine = Math.ceil(splitData.length / 5);
 
-// Use slice to divide the array into 5 parts
 const lines = [];
 for (let i = 0; i < 5; i++) {
   lines.push(splitData.slice(i * wordsPerLine, (i + 1) * wordsPerLine).join(' ')); 
@@ -43,7 +42,6 @@ for (let i = 0; i < 5; i++) {
             
     }
 
-    // onsent("what is js plese tell me ")
 
     const contextValue = {
 

@@ -19,7 +19,7 @@ function Sign() {
   const eventSubmit = (e) => {
     e.preventDefault();
 
-    // Basic form validation
+
     if (!details.username || !details.password || !details.email || !details.confirmPassword) {
       alert('Please fill in all fields');
       return;
