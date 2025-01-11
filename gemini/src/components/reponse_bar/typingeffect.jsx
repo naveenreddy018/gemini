@@ -29,7 +29,7 @@ const TypingEffect = ({ text, delay, query }) => {
 
   return (
 
-    <div>{displayText.replaceAll("*", "")}</div>
+    <div>{displayText.replaceAll("*","")}</div>
 
   );
 };

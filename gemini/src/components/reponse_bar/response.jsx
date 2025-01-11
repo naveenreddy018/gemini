@@ -5,6 +5,7 @@ import "./response.css"
 
 import TypingEffect from './typingeffect';
 import { recent_context } from '../context/cont';
+import FormModal from './modal';
 // import  SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
 
 export const Array = []
@@ -21,6 +22,7 @@ function Response_Bar() {
     const [loading, setloading] = useState(null)
     const { setRecent_items } = useContext(recent_context)
     const [toggle, settoggle] = useState(false)
+    const [user_ModalBody,setuser_modal] = useState(false)
 
     input_value(prompt)
 
@@ -71,7 +73,7 @@ function Response_Bar() {
                     <ImageComponent
                         src={assets.Gemini_Advanced_logo}
                         style={{
-                            width: 100
+                            width: 150
                         }}
                     />
 
@@ -81,7 +83,10 @@ function Response_Bar() {
                         <a href="https://one.google.com/explore-plan/gemini-advanced?utm_source=g1&utm_medium=paid_media&utm_campaign=sem_gemini_g1_sl&gad_source=1&gclid=CjwKCAiAp4O8BhAkEiwAqv2UqMzHjs04CxKR7HG8uySaCqdi-LLQvAZlU7qjV_7odhwoyLCVVPnDURoCoLkQAvD_BwE&g1_landing_page=65">Try advanced Gemini</a>
                     </div>
                     <div className="toggle_bar">
-                        <button onClick={Handle_toggle} >
+                        <button style={{
+                            backgroundColor : toggle ? "black" : "white",
+                           color: toggle ? "white" : "black"
+                        }} onClick={Handle_toggle} >
                             {toggle ? "Light" : "Dark"}
                         </button>
                         {/* <ImageComponent 
@@ -91,13 +96,24 @@ function Response_Bar() {
                         /> */}
                     </div>
                     <div className='nav-hamburger'>
-                        <ImageComponent
-                            src={assets.hamburger}
+                        {/* <ImageComponent
+                            src="https://e7.pngegg.com/pngimages/530/733/png-clipart-goggle-playstore-icon-google-play-computer-icons-android-play-button-angle-rectangle-thumbnail.png"
                             style={{
                                 width: 40,
                                 borderRadius: '50%'
                             }}
+                        /> */}
+                        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard&hl=en_IN&pli=1">
+                        
+                        <ImageComponent
+                            src="https://e7.pngegg.com/pngimages/530/733/png-clipart-goggle-playstore-icon-google-play-computer-icons-android-play-button-angle-rectangle-thumbnail.png"
+                            style={{
+                                width: 35,
+                                borderRadius: '0%'
+                            }}
                         />
+                        
+                        </a>
                     </div>
 
                     <div className='nav-user-icon'>
@@ -107,8 +123,12 @@ function Response_Bar() {
                                 width: 40,
                                 borderRadius: '50%'
                             }}
+                            onClick={()=>setuser_modal(prev => !prev)}
                         />
                     </div>
+                   {
+                    user_ModalBody ?  <FormModal className="pos" /> : null
+                   }
                 </div>
             </div>
             {
@@ -134,7 +154,7 @@ function Response_Bar() {
                         <p>how can i help you</p>
                     </div>
                     <div className="cards">
-                        <div className="card">
+                        <div className="card" >
                             <p>suggest beautiful places to see on an upcoming road trip</p>
                             <ImageComponent className="card_image" src={assets.compass_icon} />
                         </div>
@@ -157,7 +177,8 @@ function Response_Bar() {
             <div className='footer'>
                 <div className='input-bar'>
                     <input type='text' style={{
-                        backgroundColor: toggle ? "black" : "white"
+                        backgroundColor: toggle ? "black" : "white",
+                        color: toggle ? "white" : "back"
                     }} onChange={(e) => setprompt(e.target.value)} value={prompt} placeholder='Enter ur prompt' />
                 </div>
 

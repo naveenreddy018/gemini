@@ -13,3 +13,12 @@
   min-width: 100vw;
   display: flex;
 }
+
+
+@media (max-width:1024px) {
+
+  #root{
+    max-height: 70vh;
+  }
+  
+}
